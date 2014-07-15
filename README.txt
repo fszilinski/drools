@@ -1,4 +1,7 @@
 = Examples for the book - "Drools JBoss Rules 5.5 Developer's Guide" = 
+
+* if you are using idea, just import maven project and RUN the `mvn clean install`
+
 More information about this book can be found at http://www.packtpub.com/jboss-rules-5-x-developers-guide/book
 
 == Contents ==
@@ -32,3 +35,5 @@ You can also build all examples and run all tests from command line. Go to the d
 `mvn clean install` 
 
 The examples were developed and tested with JDK 1.6.0_27, Maven 3.0.4  
+
+
