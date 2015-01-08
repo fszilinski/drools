@@ -481,7 +481,7 @@
   </scm>
   <properties>
     <!-- https://github.com/droolsjbpm/droolsjbpm-build-bootstrap/blob/5.4.0.Final/pom.xml -->
-    <drools.ver>5.5.0.Final</drools.ver>
+    <drools.ver>5.6.0.Final</drools.ver>
     <jbpm.version>5.4.0.Final</jbpm.version>
 
     <spring.ver>3.2.1.RELEASE</spring.ver>

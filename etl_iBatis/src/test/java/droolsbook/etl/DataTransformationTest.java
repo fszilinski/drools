@@ -1,18 +1,13 @@
 package droolsbook.etl;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertSame;
-
-import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-
+import droolsbook.bank.model.Address;
+import droolsbook.bank.service.Message;
+import droolsbook.bank.service.ReportFactory;
+import droolsbook.bank.service.ValidationReport;
+import droolsbook.bank.service.impl.DefaultReportFactory;
+import droolsbook.transform.service.LegacyBankService;
+import droolsbook.utils.DroolsHelper;
+import droolsbook.utils.RuleNameEqualsAgendaFilter;
 import org.drools.KnowledgeBase;
 import org.drools.ObjectFilter;
 import org.drools.command.Command;
@@ -23,18 +18,13 @@ import org.drools.event.rule.DebugWorkingMemoryEventListener;
 import org.drools.runtime.ExecutionResults;
 import org.drools.runtime.StatelessKnowledgeSession;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Ignore;
 import org.junit.Test;
 
-import droolsbook.bank.model.Address;
-import droolsbook.bank.service.Message;
-import droolsbook.bank.service.ReportFactory;
-import droolsbook.bank.service.ValidationReport;
-import droolsbook.bank.service.impl.DefaultReportFactory;
-import droolsbook.transform.service.LegacyBankService;
-import droolsbook.utils.DroolsHelper;
-import droolsbook.utils.RuleNameEqualsAgendaFilter;
+import java.math.BigDecimal;
+import java.util.*;
+
+import static org.junit.Assert.*;
 
 public class DataTransformationTest {
 
@@ -43,8 +33,8 @@ public class DataTransformationTest {
 
   static KnowledgeBase knowledgeBase;
   
-  @BeforeClass
-  public static void setUpClass() throws Exception {
+  @Before
+  public void setUp() throws Exception {
     knowledgeBase = DroolsHelper
         .createKnowledgeBase("etl-iBatis.drl");
     

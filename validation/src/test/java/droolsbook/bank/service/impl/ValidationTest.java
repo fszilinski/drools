@@ -1,42 +1,5 @@
 package droolsbook.bank.service.impl;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertTrue;
-
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.Reader;
-import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.List;
-
-import org.drools.KnowledgeBase;
-import org.drools.KnowledgeBaseConfiguration;
-import org.drools.KnowledgeBaseFactory;
-import org.drools.RuleBase;
-import org.drools.RuleBaseConfiguration;
-import org.drools.RuleBaseFactory;
-import org.drools.builder.KnowledgeBuilder;
-import org.drools.builder.KnowledgeBuilderFactory;
-import org.drools.builder.ResourceType;
-import org.drools.command.Command;
-import org.drools.command.CommandFactory;
-import org.drools.compiler.DroolsParserException;
-import org.drools.compiler.PackageBuilder;
-import org.drools.conf.SequentialOption;
-import org.drools.io.ResourceFactory;
-import org.drools.rule.Package;
-import org.drools.runtime.StatelessKnowledgeSession;
-import org.joda.time.DateMidnight;
-import org.junit.Before;
-import org.junit.BeforeClass;
-import org.junit.Test;
-
 import droolsbook.bank.model.Account;
 import droolsbook.bank.model.Address;
 import droolsbook.bank.model.Customer;
@@ -44,14 +7,36 @@ import droolsbook.bank.service.BankingInquiryService;
 import droolsbook.bank.service.Message;
 import droolsbook.bank.service.ReportFactory;
 import droolsbook.bank.service.ValidationReport;
+import org.drools.KnowledgeBase;
+import org.drools.KnowledgeBaseConfiguration;
+import org.drools.KnowledgeBaseFactory;
+import org.drools.builder.KnowledgeBuilder;
+import org.drools.builder.KnowledgeBuilderFactory;
+import org.drools.builder.ResourceType;
+import org.drools.command.Command;
+import org.drools.command.CommandFactory;
+import org.drools.conf.SequentialOption;
+import org.drools.io.ResourceFactory;
+import org.drools.runtime.StatelessKnowledgeSession;
+import org.joda.time.DateMidnight;
+import org.junit.Before;
+import org.junit.Test;
+
+import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.List;
+
+import static org.junit.Assert.*;
 
 // @extract-start 03 67
 public class ValidationTest {
   static StatelessKnowledgeSession session;
   static ReportFactory reportFactory;  
   
-  @BeforeClass
-  public static void setUpClass() throws Exception {
+  @Before
+  public void setUp() throws Exception {
     KnowledgeBuilder builder = KnowledgeBuilderFactory
         .newKnowledgeBuilder();
     builder.add(ResourceFactory.newClassPathResource(
